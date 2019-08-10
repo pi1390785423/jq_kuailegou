@@ -19,6 +19,10 @@ $(function () {
                     let arr = JSON.parse(val);
     
                     let html23 = arr.map((item, index) => {
+                       let  lqsasas  =   (item.price*item.num*1).toFixed(2);
+                       console.log(lqsasas);
+
+
                         return `<div class="item_form" data-id = ${item.gid} >
                      
                             <div class="cell p_checkbox">
@@ -50,7 +54,7 @@ $(function () {
                 
                             </div>
                             <div class="cell p_sum">
-                    <strong class="p_sum_io" >￥${item.price}</strong>
+                    <strong class="p_sum_io" >￥${lqsasas}</strong>
                             </div>
                             <div class="cell p_ops">
                                 <a  class="car_remove" href="javascript:;">
@@ -86,9 +90,8 @@ $(function () {
 
 
 
-            let  lqs = $('.itxt').val();
 
-            goodTotal(lqs);
+
 
 
 
@@ -104,7 +107,7 @@ $('.item_list').on('click', ".a_add", function () {
     if (num >= kucun) {
         num = kucun;
     }
-    $(this).prev().val(num);
+    $(this).prev().val(num)
     goodTotal($(this));//把点击当前的那个按钮传到函数，通过节点的关系查找其他节点
 });
 
@@ -149,6 +152,8 @@ $('.item_list').on('input', '.itxt', function () {
         // console.log(price,num,total);
     }
 
+
+
     //3.删除当行商品；
     $('.item_list').on('click', '.car_remove', function () {
         let res = confirm('您要删除我吗？');
@@ -173,6 +178,15 @@ $('.item_list').on('input', '.itxt', function () {
         });
 
 
+
+
+
+
+
+   
+
+
+    });
 
 
     function update() {
